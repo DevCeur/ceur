@@ -1,5 +1,9 @@
+import "styles/global.css";
 import Head from "next/head";
 import { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+
+import theme from "theme";
 
 const App = ({ pageProps, Component }: AppProps) => {
   return (
@@ -8,7 +12,9 @@ const App = ({ pageProps, Component }: AppProps) => {
         <title>Carlos U.</title>
       </Head>
       <div>
-        <Component {...pageProps} />
+        <ChakraProvider theme={theme}>
+          <Component {...pageProps} />
+        </ChakraProvider>
       </div>
     </>
   );
