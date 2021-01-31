@@ -12,7 +12,7 @@ const PageWrapper: React.FC<IPageWrapper> = ({ children, title }) => {
       <Head>
         <title>Carlos U. - {title}</title>
       </Head>
-      <Box w="85%" maxW="85%" mx="auto" mt={6}>
+      <Box w="85%" maxW="1024px" mx="auto" mt={6}>
         {children}
       </Box>
     </>

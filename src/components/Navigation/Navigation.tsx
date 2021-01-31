@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 const Navigation = () => {
   return (
@@ -7,10 +7,11 @@ const Navigation = () => {
       w="85%"
       maxW="1124px"
       mx="auto"
-      py={6}
+      py={{ base: 6, md: 8 }}
       borderBottom="1px"
       borderBottomColor="gray.200"
     >
+      <Heading>Almost before</Heading>
       <Text>Navigation</Text>
     </Box>
   );
