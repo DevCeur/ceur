@@ -5,6 +5,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import theme from "theme";
 
+import Navigation from "components/Navigation";
+
 const App = ({ pageProps, Component }: AppProps) => {
   return (
     <>
@@ -13,6 +15,7 @@ const App = ({ pageProps, Component }: AppProps) => {
       </Head>
       <div>
         <ChakraProvider theme={theme}>
+          <Navigation />
           <Component {...pageProps} />
         </ChakraProvider>
       </div>
