@@ -1,12 +1,13 @@
 import NextLink from "next/link";
 import { Flex, Heading, HStack, Link, Text } from "@chakra-ui/react";
+import Navlink from "components/Navlink";
 
 const Navigation = () => {
   return (
     <Flex
       as="nav"
       w="85%"
-      maxW="1124px"
+      maxW="1000px"
       mx="auto"
       py={{ base: 6, md: 8 }}
       borderBottom="1px"
@@ -24,8 +25,9 @@ const Navigation = () => {
             <Heading as="h2">Carlos U.</Heading>
           </Link>
         </NextLink>
-        <HStack pl={{ base: 0, md: 6 }}>
-          <Text>Internal Links</Text>
+        <HStack pl={{ base: 0, md: 6 }} spacing={{ base: 0, md: 4 }}>
+          <Navlink href="/">Home</Navlink>
+          <Navlink href="/blog">Blog</Navlink>
         </HStack>
       </HStack>
       <HStack display={{ base: "none", md: "flex" }}>
