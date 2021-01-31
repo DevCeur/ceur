@@ -1,8 +1,10 @@
+import PageWrapper from "components/PageWrapper";
+
 const Home = () => {
   return (
-    <div>
+    <PageWrapper title="Hey!">
       <p>Home</p>
-    </div>
+    </PageWrapper>
   );
 };
 
