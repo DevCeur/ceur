@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 
-import { getAllPosts } from "lib/blog";
+import { getAllBlogsSorted } from "lib/blog";
 
 import PageWrapper from "components/PageWrapper";
 import BlogCard from "components/BlogCard";
@@ -31,8 +31,8 @@ const Home = ({ blogs }) => {
           </Text>
         </Box>
         <VStack align="flex-start" spacing={2}>
-          {blogs.slice(0, 3).map((post) => (
-            <BlogCard blog={post} />
+          {blogs.slice(0, 3).map((blog) => (
+            <BlogCard key={blog.slug} blog={blog} />
           ))}
         </VStack>
       </Flex>
@@ -41,7 +41,7 @@ const Home = ({ blogs }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blogs = await getAllPosts();
+  const blogs = await getAllBlogsSorted();
 
   return {
     props: {

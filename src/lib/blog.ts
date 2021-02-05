@@ -38,7 +38,7 @@ export const getPostContentBySlug = async (slug: string) => {
   };
 };
 
-export const getAllPosts = async () => {
+export const getAllBlogs = async () => {
   const files = fs.readdirSync(path.join(root, "src/data/blogs"));
 
   return files.reduce((allPosts, postSlug) => {
@@ -57,9 +57,20 @@ export const getAllPosts = async () => {
         ...data,
         timeToRead,
         publishedAt: dateFormatted,
+        rawPublishedAt: data.publishedAt,
         slug: postSlug.replace(".mdx", ""),
       },
       ...allPosts,
     ];
   }, []);
+};
+
+export const getAllBlogsSorted = async () => {
+  const blogs = await getAllBlogs();
+
+  const sortedBlogs = blogs.sort(
+    (a, b) => +new Date(a.rawPublishedAt) - +new Date(b.rawPublishedAt)
+  );
+
+  return sortedBlogs;
 };
