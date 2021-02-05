@@ -14,6 +14,7 @@ const theme = extendTheme({
     Text: {
       baseStyle: {
         color: "gray.600",
+        lineHeight: "28px",
       },
     },
   },

@@ -12,17 +12,17 @@ const Navigation = () => {
     <Flex
       as="nav"
       w="85%"
-      maxW="1000px"
+      maxW="800px"
       mx="auto"
       py={{ base: 6, md: 8 }}
       borderBottom="1px"
-      borderBottomColor="gray.200"
+      borderBottomColor="gray.100"
       align="center"
       justify="space-between"
     >
       <HStack
         w={{ base: "100%", md: "65%" }}
-        spacing={6}
+        spacing={{ base: 6, md: 8 }}
         justify={{ base: "space-between", md: "flex-start" }}
       >
         <NextLink href={ROUTE.HOME} passHref>
@@ -30,13 +30,7 @@ const Navigation = () => {
             <Heading as="h2">Carlos U.</Heading>
           </Link>
         </NextLink>
-        <HStack
-          ml={{ base: 0, md: 12 }}
-          pl={{ base: 0, md: 8 }}
-          spacing={{ base: 0, md: 4 }}
-          borderLeft="1px"
-          borderColor={{ base: "transparent", md: "gray.200" }}
-        >
+        <HStack spacing={{ base: 0, md: 4 }}>
           <Navlink href={ROUTE.HOME} hideOnMobile>
             Home
           </Navlink>
