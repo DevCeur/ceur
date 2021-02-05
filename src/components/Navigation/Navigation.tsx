@@ -6,6 +6,7 @@ import { AiFillGithub } from "react-icons/ai";
 import { ROUTE } from "utils/enum";
 
 import Navlink from "components/Navlink";
+import Logo from "theme/Icons/Logo";
 
 const Navigation = () => {
   return (
@@ -27,7 +28,14 @@ const Navigation = () => {
       >
         <NextLink href={ROUTE.HOME} passHref>
           <Link _hover={{ textDecor: "none" }}>
-            <Heading as="h2">Carlos U.</Heading>
+            <HStack spacing={4}>
+              <Logo
+                fontSize="4xl"
+                color="gray.600"
+                _hover={{ color: "gray.900" }}
+                transition=".3s ease"
+              />
+            </HStack>
           </Link>
         </NextLink>
         <HStack spacing={{ base: 0, md: 4 }}>

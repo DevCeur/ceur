@@ -8,7 +8,7 @@ import PageWrapper from "components/PageWrapper";
 const Home = ({ posts }) => {
   return (
     <PageWrapper title="Hey!">
-      <VStack py={8} as="header" align="flex-start" mb={12}>
+      <VStack py={8} as="header" align="flex-start" mb={8}>
         <Text pl={4} fontWeight="bold" color="cyan.500">
           &gt; Hey! I'm
         </Text>
