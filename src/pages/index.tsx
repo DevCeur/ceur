@@ -6,7 +6,7 @@ import { getAllPosts } from "lib/blog";
 import PageWrapper from "components/PageWrapper";
 import BlogCard from "components/BlogCard";
 
-const Home = ({ posts }) => {
+const Home = ({ blogs }) => {
   return (
     <PageWrapper title="Hey!">
       <VStack py={8} as="header" align="flex-start" mb={8}>
@@ -30,8 +30,8 @@ const Home = ({ posts }) => {
             world in my little internet corner.
           </Text>
         </Box>
-        <VStack align="flex-start" spacing={4}>
-          {posts.map((post) => (
+        <VStack align="flex-start" spacing={2}>
+          {blogs.slice(0, 3).map((post) => (
             <BlogCard blog={post} />
           ))}
         </VStack>
@@ -41,11 +41,11 @@ const Home = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllPosts();
+  const blogs = await getAllPosts();
 
   return {
     props: {
-      posts,
+      blogs,
     },
   };
 };
