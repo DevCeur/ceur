@@ -30,9 +30,20 @@ const Navigation = () => {
             <Heading as="h2">Carlos U.</Heading>
           </Link>
         </NextLink>
-        <HStack pl={{ base: 0, md: 6 }} spacing={{ base: 0, md: 4 }}>
-          <Navlink href={ROUTE.HOME}>Home</Navlink>
+        <HStack
+          ml={{ base: 0, md: 12 }}
+          pl={{ base: 0, md: 8 }}
+          spacing={{ base: 0, md: 4 }}
+          borderLeft="1px"
+          borderColor={{ base: "transparent", md: "gray.200" }}
+        >
+          <Navlink href={ROUTE.HOME} hideOnMobile>
+            Home
+          </Navlink>
           <Navlink href={ROUTE.BLOG}>Blog</Navlink>
+          <Navlink href={ROUTE.ABOUT} hideOnMobile>
+            About
+          </Navlink>
         </HStack>
       </HStack>
       <HStack display={{ base: "none", md: "flex" }}>

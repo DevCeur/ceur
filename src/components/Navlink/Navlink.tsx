@@ -3,9 +3,10 @@ import { Link } from "@chakra-ui/react";
 
 interface INavlink {
   href: string;
+  hideOnMobile?: boolean;
 }
 
-const Navlink: React.FC<INavlink> = ({ children, href }) => {
+const Navlink: React.FC<INavlink> = ({ children, href, hideOnMobile }) => {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent) => {
@@ -29,6 +30,10 @@ const Navlink: React.FC<INavlink> = ({ children, href }) => {
       bgColor={router.pathname === href ? "cyan.50" : "transparent"}
       color={router.pathname === href ? "cyan.800" : "gray.500"}
       borderRadius="lg"
+      display={{
+        base: hideOnMobile ? "none" : "inline-block",
+        md: "inline-block",
+      }}
     >
       {children}
     </Link>
