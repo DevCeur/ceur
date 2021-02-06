@@ -5,7 +5,7 @@ pre[class*="language-"] {
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  color: #415058;
+  color: #283136;
   background: #fafafa;
   font-family: "Menlo", Consolas, Roboto Mono, monospace;
   font-size: 14px;
@@ -48,6 +48,8 @@ pre[class*="language-"] {
   position: relative;
   margin: 0.5em 0;
   padding: 2em;
+  border-radius: 10px;
+  border: 1px solid #eaeaea;
 }
 
 .language-css > code,
@@ -121,7 +123,7 @@ pre[class*="language-"] {
 }
 
 .token.function {
-  color: #7c4dff;
+  color: #0eb47d;
 }
 
 .token.hexcode {
@@ -143,7 +145,7 @@ pre[class*="language-"] {
 }
 
 .token.keyword {
-  color: #7c4dff;
+  color: #2f00af;
 }
 
 .token.number {
@@ -183,7 +185,7 @@ pre[class*="language-"] {
 }
 
 .token.string {
-  color: #f6a434;
+  color: #ff9c11;
 }
 
 .token.symbol {
