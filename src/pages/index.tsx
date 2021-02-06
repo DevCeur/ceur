@@ -1,10 +1,12 @@
 import { GetStaticProps } from "next";
-import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text, VStack } from "@chakra-ui/react";
 
 import { getAllBlogsFormatted } from "lib/blog";
 
 import PageWrapper from "components/PageWrapper";
 import BlogCard from "components/BlogCard";
+import ProjectCard from "components/ProjectCard";
+import { projects } from "data/projects";
 
 const Home = ({ blogs }) => {
   return (
@@ -20,9 +22,9 @@ const Home = ({ blogs }) => {
           trying to be Backend too. &#127770;
         </Text>
       </VStack>
-      <Flex direction="column">
+      <Flex direction="column" mb={14}>
         <Box mb={6}>
-          <Heading mb={2} as="h2">
+          <Heading mb={2} as="h2" size="xl">
             I Write too...
           </Heading>
           <Text>
@@ -35,6 +37,16 @@ const Home = ({ blogs }) => {
             <BlogCard key={blog.slug} blog={blog} />
           ))}
         </VStack>
+      </Flex>
+      <Flex direction="column">
+        <Heading as="h2" size="xl" mb={4}>
+          Personal projects
+        </Heading>
+        <Grid gap={8} templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </Grid>
       </Flex>
     </PageWrapper>
   );
