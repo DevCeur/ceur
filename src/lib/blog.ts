@@ -6,6 +6,8 @@ import readingTime from "reading-time";
 import renderToString from "next-mdx-remote/render-to-string";
 import dayjs from "dayjs";
 
+import { Heading } from "@chakra-ui/react";
+
 const root = process.cwd();
 
 export const getBlogsSlugs = async () => {
@@ -15,7 +17,7 @@ export const getBlogsSlugs = async () => {
   return files.map((file) => file.replace(".mdx", ""));
 };
 
-export const getPostContentBySlug = async (slug: string) => {
+export const getBlogBySlug = async (slug: string) => {
   const source = fs.readFileSync(
     path.join(root, "src/data/blogs", `${slug}.mdx`),
     "utf-8"
@@ -25,15 +27,16 @@ export const getPostContentBySlug = async (slug: string) => {
 
   const timeToRead = readingTime(content).text;
   const dateFormatted = dayjs(data.publishedAt).format("DD MMM, YYYY");
-  const contentFormatted = await renderToString(content);
+  const contentFormatted = await renderToString(content, {
+    components: {
+      Heading,
+    },
+  });
 
   return {
-    meta: {
-      ...data,
-      publishedAt: dateFormatted,
-      timeToRead,
-      slug,
-    },
+    ...data,
+    timeToRead,
+    publishedAt: dateFormatted,
     content: contentFormatted.renderedOutput,
   };
 };
