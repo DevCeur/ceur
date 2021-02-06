@@ -1,10 +1,11 @@
 import fs from "fs";
 import path from "path";
 
+import dayjs from "dayjs";
+import mdxPrism from "mdx-prism";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 import renderToString from "next-mdx-remote/render-to-string";
-import dayjs from "dayjs";
 
 import { MDX_COMPONENTS } from "utils/enum";
 
@@ -27,15 +28,19 @@ export const getBlogBySlug = async (slug: string) => {
 
   const timeToRead = readingTime(content).text;
   const dateFormatted = dayjs(data.publishedAt).format("DD MMM, YYYY");
-  const contentFormatted = await renderToString(content, {
+  const mdxSource = await renderToString(content, {
     components: MDX_COMPONENTS,
+    scope: data,
+    mdxOptions: {
+      rehypePlugins: [mdxPrism],
+    },
   });
 
   return {
     ...data,
     timeToRead,
     publishedAt: dateFormatted,
-    content: contentFormatted,
+    source: mdxSource,
   };
 };
 
@@ -66,12 +71,14 @@ export const getAllBlogs = async () => {
   }, []);
 };
 
-export const getAllBlogsSorted = async () => {
+export const getAllBlogsFormatted = async () => {
   const blogs = await getAllBlogs();
 
   const sortedBlogs = blogs.sort(
     (a, b) => +new Date(a.rawPublishedAt) - +new Date(b.rawPublishedAt)
   );
 
-  return sortedBlogs;
+  const activeBlogs = sortedBlogs.filter((blog) => blog.isActive);
+
+  return activeBlogs;
 };

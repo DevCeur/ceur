@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 
-import { getAllBlogsSorted } from "lib/blog";
+import { getAllBlogsFormatted } from "lib/blog";
 
 import PageWrapper from "components/PageWrapper";
 import BlogCard from "components/BlogCard";
@@ -41,7 +41,7 @@ const Home = ({ blogs }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blogs = await getAllBlogsSorted();
+  const blogs = await getAllBlogsFormatted();
 
   return {
     props: {

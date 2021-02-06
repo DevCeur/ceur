@@ -1,12 +1,48 @@
 ---
-title: "First Blog"
+title: "What is this about?"
 publishedAt: "2021-02-04"
-summary: "This is just the first blog summary"
+summary: "A little story time to see what this is about..."
 author: "Carlos U"
+image: "/images/blogs/first-blog-hero.jpg"
+isActive: true
 ---
 
-# First Blog
+<!-- Content -->
 
-<Heading>Hello World</Heading>
+<Text mb={12}>
+  Well, this is something that in some point of my young Frontend career I
+  wanted to build, <strong>My Own Blog</strong>. And now I'm here, writing my
+  first blog, in my own website, created with code writed by me, and yeah, this
+  maybe sounds simple, but this is very important, and powerfull for me.
+</Text>
 
-Some content
+<Heading mb={2}>How I started?</Heading>
+
+<Text mb={4}>First, It was a dream, later just a little bit of reality.</Text>
+
+```js
+import React from "react";
+import useSWR from "swr";
+import format from "comma-number";
+
+import fetcher from "../../lib/fetcher";
+
+import MetricCard from "./card";
+
+function Unsplash() {
+  const { data } = useSWR("/api/unsplash", fetcher);
+
+  const downloads = format(data?.downloads);
+  const views = format(data?.views);
+  const link = "https://unsplash.com/@leerob";
+
+  return (
+    <>
+      <MetricCard header="Unsplash Downloads" link={link} metric={downloads} />
+      <MetricCard header="Unsplash Views" link={link} metric={views} />
+    </>
+  );
+}
+
+export default Unsplash;
+```

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Heading, Text } from "@chakra-ui/react";
 
 export const ROUTE = {
@@ -9,4 +10,5 @@ export const ROUTE = {
 export const MDX_COMPONENTS = {
   Heading,
   Text,
+  Image,
 };
