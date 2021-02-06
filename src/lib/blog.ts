@@ -6,7 +6,7 @@ import readingTime from "reading-time";
 import renderToString from "next-mdx-remote/render-to-string";
 import dayjs from "dayjs";
 
-import { Heading } from "@chakra-ui/react";
+import { MDX_COMPONENTS } from "utils/enum";
 
 const root = process.cwd();
 
@@ -28,16 +28,14 @@ export const getBlogBySlug = async (slug: string) => {
   const timeToRead = readingTime(content).text;
   const dateFormatted = dayjs(data.publishedAt).format("DD MMM, YYYY");
   const contentFormatted = await renderToString(content, {
-    components: {
-      Heading,
-    },
+    components: MDX_COMPONENTS,
   });
 
   return {
     ...data,
     timeToRead,
     publishedAt: dateFormatted,
-    content: contentFormatted.renderedOutput,
+    content: contentFormatted,
   };
 };
 
