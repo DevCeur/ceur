@@ -16,33 +16,51 @@ isActive: true
   maybe sounds simple, but this is very important, and powerfull for me.
 </Text>
 
-<Heading mb={2}>How I started?</Heading>
+<Heading as="h2" mb={2}>
+  How I started?
+</Heading>
 
-<Text mb={4}>First, It was a dream, later just a little bit of reality.</Text>
+<Text mb={8}>First, It was a dream, later just a little bit of reality.</Text>
 
 ```jsx
 import React from "react";
-import useSWR from "swr";
-import format from "comma-number";
 
-import fetcher from "../../lib/fetcher";
-
-import MetricCard from "./card";
-
-function Unsplash() {
-  const { data } = useSWR("/api/unsplash", fetcher);
-
-  const downloads = format(data?.downloads);
-  const views = format(data?.views);
-  const link = "https://unsplash.com/@leerob";
-
+const HelloBlog() {
   return (
-    <>
-      <MetricCard header="Unsplash Downloads" link={link} metric={downloads} />
-      <MetricCard header="Unsplash Views" link={link} metric={views} />
-    </>
+    <div>
+      <h1>Hello Blog</h1>
+    </div>
   );
 }
 
-export default Unsplash;
+export default HelloBlog;
 ```
+
+<VStack align="flex-start" mt={8} spacing={8} mb={12}>
+  <Text>
+    Literally that was my first file and my first component when I wanted to build
+    my own blog. maybe one year and a half ago I think. That was the start of this
+    journey of learning, disapointments, more learning and code, and my first job
+    as a Frontend developer! I'm writing something about that BTW...
+  </Text>
+
+  <Text>
+    I just wanted a place to keep safe my thoughts and my knowledge, to share
+    things I know and to have a little <i>"terrain"</i> on the internet. To learn
+    more, about writing and how the people like to learn and read things like
+    this.
+  </Text>
+</VStack>
+
+<VStack align="flex-start" mt={8} spacing={8} mb={12}>
+  <Heading as="h2">What's the plan?</Heading>
+  <Box>
+    <OrderedList spacing={4}>
+      <ListItem>Write, write, write...</ListItem>
+      <ListItem>Improve this blog and the website monthly</ListItem>
+      <ListItem>
+        Make at least <strong>1 new article</strong> per month.
+      </ListItem>
+    </OrderedList>
+  </Box>
+</VStack>

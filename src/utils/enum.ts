@@ -1,5 +1,13 @@
 import Image from "next/image";
-import { Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  OrderedList,
+  ListItem,
+  VStack,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 
 export const ROUTE = {
   HOME: "/",
@@ -8,7 +16,12 @@ export const ROUTE = {
 };
 
 export const MDX_COMPONENTS = {
+  Box,
+  Flex,
   Heading,
   Text,
   Image,
+  VStack,
+  OrderedList,
+  ListItem,
 };
