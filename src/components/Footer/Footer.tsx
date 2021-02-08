@@ -4,8 +4,6 @@ import Logo from "theme/Icons/Logo";
 
 const externalLinks = [
   { id: 1, url: "https://www.github.com/DevCeur", text: "GitHub" },
-  { id: 2, url: "https://www.github.com/DevCeur", text: "Twitter" },
-  { id: 3, url: "https://www.github.com/DevCeur", text: "Instagram" },
 ];
 
 const Footer = () => {

@@ -32,6 +32,7 @@ export const getBlogBySlug = async (slug: string) => {
     components: MDX_COMPONENTS,
     scope: data,
     mdxOptions: {
+      remarkPlugins: [require("remark-code-titles")],
       rehypePlugins: [mdxPrism],
     },
   });

@@ -39,13 +39,8 @@ const Navigation = () => {
           </Link>
         </NextLink>
         <HStack spacing={{ base: 0, md: 4 }}>
-          <Navlink href={ROUTE.HOME} hideOnMobile>
-            Home
-          </Navlink>
+          <Navlink href={ROUTE.HOME}>Home</Navlink>
           <Navlink href={ROUTE.BLOG}>Blog</Navlink>
-          <Navlink href={ROUTE.ABOUT} hideOnMobile>
-            About
-          </Navlink>
         </HStack>
       </HStack>
       <HStack display={{ base: "none", md: "flex" }}>
