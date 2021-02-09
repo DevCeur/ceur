@@ -1,3 +1,4 @@
+import Image from "next/image";
 import hydrate from "next-mdx-remote/hydrate";
 
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -7,9 +8,9 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { MDX_COMPONENTS } from "utils/enum";
 import { getBlogBySlug, getBlogsSlugs } from "lib/blog";
 
-import PageWrapper from "components/PageWrapper";
 import Logo from "theme/Icons/Logo";
-import Image from "next/image";
+
+import PageWrapper from "components/PageWrapper";
 
 const BlogPage = ({ blog }) => {
   const content = hydrate(blog.source, { components: MDX_COMPONENTS });
@@ -55,7 +56,13 @@ const BlogPage = ({ blog }) => {
         overflow="hidden"
         boxShadow="xl"
       >
-        <Image src={blog.image} objectFit="cover" layout="fill" />
+        <Image
+          src={blog.image}
+          objectFit="cover"
+          layout="fill"
+          alt={blog.title}
+          priority={true}
+        />
       </Box>
       <Box my={8}>{content}</Box>
     </PageWrapper>
