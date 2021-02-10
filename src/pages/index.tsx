@@ -25,12 +25,9 @@ const Home = ({ blogs }) => {
       <Flex direction="column" mb={14}>
         <Box mb={6}>
           <Heading mb={2} as="h2" size="xl">
-            I Write too...
+            I write too...
           </Heading>
-          <Text>
-            This is what I write, what I think and what I want to share with the
-            world in my little internet corner.
-          </Text>
+          <Text>Some words by my, for the world</Text>
         </Box>
         <VStack align="flex-start" spacing={2}>
           {blogs.slice(0, 3).map((blog) => (
