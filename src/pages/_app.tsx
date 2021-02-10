@@ -1,11 +1,10 @@
-import "styles/code.css";
 import Head from "next/head";
 import { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Global } from "@emotion/react";
 
 import theme from "theme";
-import fonts from "styles/fonts";
+import globalStyles from "styles/global";
 
 import Navigation from "components/Navigation";
 
@@ -17,7 +16,7 @@ const App = ({ pageProps, Component }: AppProps) => {
       </Head>
       <div>
         <ChakraProvider theme={theme}>
-          <Global styles={fonts} />
+          <Global styles={globalStyles} />
           <Navigation />
           <Component {...pageProps} />
         </ChakraProvider>
