@@ -1,72 +1,16 @@
-import Image from "next/image";
 import hydrate from "next-mdx-remote/hydrate";
 
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Box, Flex, Heading, HStack, Icon, Text } from "@chakra-ui/react";
-import { AiOutlineClockCircle } from "react-icons/ai";
 
 import { MDX_COMPONENTS } from "utils/enum";
 import { getBlogBySlug, getBlogsSlugs } from "lib/blog";
 
-import Logo from "theme/Icons/Logo";
-
-import PageWrapper from "components/PageWrapper";
+import BlogLayout from "components/BlogLayout";
 
 const BlogPage = ({ blog }) => {
   const content = hydrate(blog.source, { components: MDX_COMPONENTS });
 
-  return (
-    <PageWrapper title={blog.title}>
-      <Flex direction="column">
-        <Heading as="h1" size="2xl" mb={2}>
-          {blog.title}
-        </Heading>
-        <Text fontStyle="italic">{blog.summary}</Text>
-        <HStack mt={4} justify="space-between">
-          <HStack>
-            <Logo />
-            <Text>{blog.author}.</Text>
-          </HStack>
-          <Flex>
-            <HStack>
-              <Icon as={AiOutlineClockCircle} color="gray.400" />
-              <Text fontSize="14px" color="gray.400">
-                {blog.timeToRead}
-              </Text>
-            </HStack>
-            <Text
-              ml={4}
-              pl={4}
-              borderLeft="1px"
-              borderLeftColor="gray.200"
-              fontSize="14px"
-              color="gray.500"
-            >
-              {blog.publishedAt}
-            </Text>
-          </Flex>
-        </HStack>
-      </Flex>
-      <Box
-        mt={6}
-        width="100%"
-        height={{ base: "200px", md: "300px" }}
-        position="relative"
-        borderRadius="lg"
-        overflow="hidden"
-        boxShadow="xl"
-      >
-        <Image
-          src={blog.image}
-          objectFit="cover"
-          layout="fill"
-          alt={blog.title}
-          priority={true}
-        />
-      </Box>
-      <Box my={8}>{content}</Box>
-    </PageWrapper>
-  );
+  return <BlogLayout blog={blog} content={content} />;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
