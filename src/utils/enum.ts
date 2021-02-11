@@ -7,6 +7,7 @@ import {
   VStack,
   Heading,
   Text,
+  Link,
 } from "@chakra-ui/react";
 
 export const ROUTE = {
@@ -24,4 +25,5 @@ export const MDX_COMPONENTS = {
   VStack,
   OrderedList,
   ListItem,
+  Link,
 };
