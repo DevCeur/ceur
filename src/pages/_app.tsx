@@ -25,7 +25,7 @@ const App = ({ pageProps, Component }: AppProps) => {
             "Frontend developer, focused on React, Love learning new things everyday, Write sometimes about what I learn, playing video games and trying to be Backend too. ",
           images: [
             {
-              url: "/SEO/seo-image",
+              url: "/SEO/seo-image.jpg",
               width: 900,
               height: 600,
               alt: "Just a martian desert",
