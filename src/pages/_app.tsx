@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { AppProps } from "next/app";
+import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 import { Global } from "@emotion/react";
 import { ChakraProvider } from "@chakra-ui/react";
+import { AnimatePresence } from "framer-motion";
 
 import theme from "theme";
 import globalStyles from "styles/global";
@@ -10,6 +12,8 @@ import globalStyles from "styles/global";
 import Navigation from "components/Navigation";
 
 const App = ({ pageProps, Component }: AppProps) => {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -38,7 +42,9 @@ const App = ({ pageProps, Component }: AppProps) => {
         <ChakraProvider theme={theme}>
           <Global styles={globalStyles} />
           <Navigation />
-          <Component {...pageProps} />
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
         </ChakraProvider>
       </div>
     </>
