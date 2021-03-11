@@ -20,8 +20,16 @@ const BlogCard = ({ blog }: BlogCard) => {
         borderRadius="lg"
       >
         <Flex direction={{ base: "column", md: "row" }} justify="space-between">
-          <VStack align="flex-start">
-            <Text fontFamily="heading" fontSize="2xl" fontWeight="bold">
+          <VStack align="flex-start" maxW={{ base: "100%", md: "85%" }}>
+            <Text
+              fontFamily="heading"
+              fontSize="2xl"
+              fontWeight="bold"
+              whiteSpace="nowrap"
+              textOverflow="ellipsis"
+              overflow="hidden"
+              w="80%"
+            >
               {blog.title}
             </Text>
             <Text>{blog.summary}</Text>
