@@ -11,7 +11,7 @@ const BlogLayout = ({ blog, content }) => {
   return (
     <PageWrapper title={blog.title}>
       <Flex direction="column">
-        <Heading as="h1" size="2xl" mb={2}>
+        <Heading as="h1" size="2xl" lineHeight={1.2} mb={6}>
           {blog.title}
         </Heading>
         <Text fontStyle="italic">{blog.summary}</Text>
