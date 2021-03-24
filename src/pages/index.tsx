@@ -5,8 +5,6 @@ import { getAllBlogsFormatted } from "lib/blog";
 
 import PageWrapper from "components/PageWrapper";
 import BlogCard from "components/BlogCard";
-import ProjectCard from "components/ProjectCard";
-import { projects } from "data/projects";
 
 const Home = ({ blogs }) => {
   return (
@@ -34,16 +32,6 @@ const Home = ({ blogs }) => {
             <BlogCard key={blog.slug} blog={blog} />
           ))}
         </VStack>
-      </Flex>
-      <Flex direction="column">
-        <Heading as="h2" size="xl" mb={4}>
-          Personal projects
-        </Heading>
-        <Grid gap={8} templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </Grid>
       </Flex>
     </PageWrapper>
   );

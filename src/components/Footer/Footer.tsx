@@ -4,6 +4,16 @@ import Logo from "theme/Icons/Logo";
 
 const externalLinks = [
   { id: 1, url: "https://www.github.com/DevCeur", text: "GitHub" },
+  {
+    id: 2,
+    url: "https://www.linkedin.com/in/dev-carlos-umana",
+    text: "Linked In",
+  },
+  {
+    id: 3,
+    url: "https://torre.co/DevCeur?utm_source=copy-paste",
+    text: "Torre",
+  },
 ];
 
 const Footer = () => {
@@ -18,7 +28,7 @@ const Footer = () => {
       <VStack spacing={4} mb={8}>
         <Logo fontSize="6xl" color="gray.600" />
         <Text fontSize="sm">
-          Carlos U. - Created with &#128420; and &#x269B;
+          Carlos U. - Created with &#128420; and &#9883;️
         </Text>
       </VStack>
       <HStack spacing={4}>
