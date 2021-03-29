@@ -5,6 +5,7 @@ import { getAllBlogsFormatted } from "lib/blog";
 
 import PageWrapper from "components/PageWrapper";
 import BlogCard from "components/BlogCard";
+import ProjectList from "components/ProjectList";
 
 const Home = ({ blogs }) => {
   return (
@@ -32,6 +33,14 @@ const Home = ({ blogs }) => {
             <BlogCard key={blog.slug} blog={blog} />
           ))}
         </VStack>
+      </Flex>
+      <Flex direction="column" mb={14}>
+        <Box mb={6}>
+          <Heading mb={2} as="h2" size="xl">
+            Personal Projects
+          </Heading>
+        </Box>
+        <ProjectList />
       </Flex>
     </PageWrapper>
   );
